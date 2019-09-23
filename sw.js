@@ -26,40 +26,40 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-3c49a680efc340bbd4b0.js"
+    "url": "webpack-runtime-a824bfd7a29124d87ff7.js"
   },
   {
     "url": "styles.4ec268585cebc5510891.css"
   },
   {
-    "url": "styles-3823dc40733991730c10.js"
+    "url": "styles-5e5907aa6a7e480b75c2.js"
   },
   {
-    "url": "app-e4ddeda560ec69ec6017.js"
+    "url": "app-4550a9dce48e867faed1.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-88ac5db659705f458139.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-48cd3b2a72a8176dfcb5.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "613a3a458b693e08a9eb320e240b43c0"
+    "revision": "a3511ed07a5574aeebea2a1a544a01ae"
   },
   {
-    "url": "component---src-pages-404-js-b426e64c505e22128392.js"
+    "url": "component---src-pages-404-js-8cde95a1d9eab42e1f85.js"
   },
   {
-    "url": "4-9b16e314730f056d092c.js"
+    "url": "4-5118db971ffe14385ea0.js"
   },
   {
-    "url": "0-08927db4155e8ab6f3ef.js"
+    "url": "0-9a9cb9f2d4a32528409b.js"
   },
   {
     "url": "page-data/404.html/page-data.json",
-    "revision": "5e495b7455128628f4656b18fb2fb410"
+    "revision": "fb5ea33b1668a8aa43056eac534b58da"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "d49cef848d8d7ec7b9d87484425fcd8c"
+    "revision": "f78ab38d58e9efe16d4bb68fd911dbda"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
@@ -81,7 +81,7 @@ const navigationRoute = new workbox.routing.NavigationRoute(({ event }) => {
   return idbKeyval.get(WHITELIST_KEY).then((customWhitelist = []) => {
     // Respond with the offline shell if we match the custom whitelist
     if (customWhitelist.includes(pathname)) {
-      const offlineShell = `/health-knowledge/offline-plugin-app-shell-fallback/index.html`
+      const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
       const cacheName = workbox.core.cacheNames.precache
 
       return caches.match(offlineShell, { cacheName }).then(cachedResponse => {
@@ -153,7 +153,7 @@ const messageApi = {
 
     pathnames = pathnames.map(({ pathname, includesPrefix }) => {
       if (!includesPrefix) {
-        return `/health-knowledge${pathname}`
+        return `${pathname}`
       } else {
         return pathname
       }
